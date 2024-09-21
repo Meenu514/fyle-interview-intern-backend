@@ -1,0 +1,8 @@
+services:
+
+  fyle-backend:
+    image: fyle-backend:latest
+    ports:
+      - "7755:7755"
+    volumes:
+      - ./core/store.sqlite3:/home/app/fyle-backend/store.sqlite3:rw
