@@ -20,3 +20,4 @@ RUN chown -R app:app $APP_HOME
 USER app
 
 ENTRYPOINT ["/home/app/fyle-backend/run.sh"]
+
