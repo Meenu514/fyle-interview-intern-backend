@@ -1,9 +1,11 @@
 from flask import Blueprint
 from core import db
 from core.apis import decorators
+from core.apis.principals.schema import TeacherSchema
 from core.apis.responses import APIResponse
 from core.libs import assertions
 from core.models.assignments import Assignment
+from core.models.teachers import Teacher
 
 from .schema import AssignmentGradeSchema, AssignmentSchema, AssignmentSubmitSchema
 
@@ -17,6 +19,8 @@ def list_assignments(p):
     assignments = Assignment.get_completed_assignments()
     assignments_dump = AssignmentSchema().dump(assignments, many=True)
     return APIResponse.respond(data=assignments_dump)
+
+
 
 
 @principal_assignments_resources.route('/assignments/grade', methods=['POST'], strict_slashes=False)
